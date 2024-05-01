@@ -1,33 +1,22 @@
 import React from 'react'
 import style from './List.module.css'
-function rem() {
-  var rem  = document.getElementById('rem')
-    rem.remove();
-  
+function List({users, setUsers }) {
+  const remove = (e, idx) => {
+    e.preventDefault();
+    const filteredList = users.filter(( item, index) => index !== idx);
+    setUsers(filteredList);
+  };
 
-  
-}
-function List({users}) {
   return (
-
-    
-    <ul  className={style.li}>
-
-
-        {
-           
-        users.map( (item,index)=>
-        
-       <li id='rem' key={index}>  firstName: {item.firstName} email: {item.email} 
-       <input onClick={rem} type="button" value="Delete" />
-       </li>
-
-       
-        )
-        }
-        
+    <ul className={style.li}>
+      {users.map((item, index) => (
+        <li key={index}>
+          firstName: {item.firstName} email: {item.email} 
+          <input onClick={(e) => remove(e, index)} type="button" value="Delete" />
+        </li>
+      ))}
     </ul>
-  )
+  );
 }
 
-export default List
+export default List;

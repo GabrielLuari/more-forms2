@@ -5,7 +5,7 @@ import Form from './components/Form/Form'
 import List from './components/List/List'
 
 function App() {
-const [users,setUsers] = useState([])
+const [users, setUsers] = useState([])
 
   return (
 
@@ -13,7 +13,7 @@ const [users,setUsers] = useState([])
   <Form users={users} setUsers={setUsers}/>
   
   
-  <List users={users} >
+  <List users={users} setUsers={setUsers} >
   </List>
 
     
